@@ -2,156 +2,107 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Array</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Function</title>
 </head>
 
 <body>
-    <h1>Berlatih Array</h1>
+<h1>Berlatih Function PHP</h1>
 
-    <?php
-    echo "<h3> Soal 1 </h3>";
-    /* 
-            SOAL NO 1
-            Kelompokkan nama-nama di bawah ini ke dalam Array.
-            Kids : "Mike", "Dustin", "Will", "Lucas", "Max", "Eleven" 
-            Adults: "Hopper", "Nancy",  "Joyce", "Jonathan", "Murray"
-        */
-    $kids = ["Mike", "Dustin", "Will", "Lucas", "Max", "Eleven"];
-    print_r($kids);
-    echo "<br>";
-    $adults = ["Hopper", "Nancy", "Joyce", "Jonathan", "Murray"];
-    print_r($adults);
+<?php
 
-    echo "<h3> Soal 2</h3>";
-    /* 
-            SOAL NO 2
-            Tunjukkan panjang Array di Soal No 1 dan tampilkan isi dari masing-masing Array.
-        */
-    echo "Cast Stranger Things: ";
-    echo "<br>";
-    echo "Total Kids: " . count($kids); // Berapa panjang array kids
-    echo "<br>";
-    echo "<ol>";
-    echo "<li> $kids[0] </li>";
-    // Lanjutkan
-    echo "<li> $kids[1] </li>";
-    echo "<li> $kids[2] </li>";
-    echo "<li> $kids[3] </li>";
-    echo "<li> $kids[4] </li>";
-    echo "<li> $kids[5] </li>";
+echo "<h3>Soal No 1 Greetings</h3>";
 
-    echo "</ol>";
+function greetings($nama) {
+    echo "Halo " . $nama . ", Selamat Datang di Jabar Coding Camp!";
+}
 
-    echo "Total Adults: " . count($adults); // Berapa panjang array adults
-    echo "<br>";
-    echo "<ol>";
-    echo "<li> $adults[0] </li>";
-    // Lanjutkan
-    echo "<li> $adults[1] </li>";
-    echo "<li> $adults[2] </li>";
-    echo "<li> $adults[3] </li>";
-    echo "<li> $adults[4] </li>";
+greetings("Bagas");
+echo "<br>";
+greetings("Wahyu");
+echo "<br>";
+greetings("Abdul");
 
-    echo "</ol>";
+echo "<br><br>";
 
-    /*
-            SOAL No 3
-            Susun data-data berikut ke dalam bentuk Asosiatif Array didalam Array Multidimensi
-            
-            Name: "Will Byers"
-            Age: 12,
-            Aliases: "Will the Wise"
-            Status: "Alive"
+echo "<h3>Soal No 2 Reverse String</h3>";
 
-            Name: "Mike Wheeler"
-            Age: 12,
-            Aliases: "Dungeon Master"
-            Status: "Alive"
+function reverseString($kata) {
+    $hasil = "";
 
-            Name: "Jim Hopper"
-            Age: 43,
-            Aliases: "Chief Hopper"
-            Status: "Deceased"
+    for ($i = strlen($kata) - 1; $i >= 0; $i--) {
+        $hasil .= $kata[$i];
+    }
 
-            Name: "Eleven"
-            Age: 12,
-            Aliases: "El"
-            Status: "Alive"
+    echo $hasil;
+}
 
+reverseString("abduh");
+echo "<br>";
+reverseString("Bootcamp");
+echo "<br>";
+reverseString("We Are JCC Developers");
 
-            Output:
-            Array
-                (
-                    [0] => Array
-                        (
-                            [Name] => Will Byers
-                            [Age] => 12
-                            [Aliases] => Will the Wise
-                            [Status] => Alive
-                        )
+echo "<br><br>";
 
-                    [1] => Array
-                        (
-                            [Name] => Mike Wheeler
-                            [Age] => 12
-                            [Aliases] => Dugeon Master
-                            [Status] => Alive
-                        )
+echo "<h3>Soal No 3 Palindrome</h3>";
 
-                    [2] => Array
-                        (
-                            [Name] => Jim Hooper
-                            [Age] => 43
-                            [Aliases] => Chief Hopper
-                            [Status] => Deceased
-                        )
+function palindrome($kata) {
+    $hasil = "";
 
-                    [3] => Array
-                        (
-                            [Name] => Eleven
-                            [Age] => 12
-                            [Aliases] => El
-                            [Status] => Alive
-                        )
+    for ($i = strlen($kata) - 1; $i >= 0; $i--) {
+        $hasil .= $kata[$i];
+    }
 
-                )
-            
-        */
+    if ($kata == $hasil) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
-    $strangerThings = [
-        [
-            "Name" => "Will Byers",
-            "Age" => 12,
-            "Aliases" => "Will the Wise",
-            "Status" => "Alive"
-        ],
-        [
-            "Name" => "Mike Wheeler",
-            "Age" => 12,
-            "Aliases" => "Dungeon Master",
-            "Status" => "Alive"
-        ],
-        [
-            "Name" => "Jim Hopper",
-            "Age" => 43,
-            "Aliases" => "Chief Hopper",
-            "Status" => "Deceased"
-        ],
-        [
-            "Name" => "Eleven",
-            "Age" => 12,
-            "Aliases" => "El",
-            "Status" => "Alive"
-        ]
-    ];
+var_dump(palindrome("civic"));
+echo "<br>";
 
-    echo "<pre>";
-    print_r($strangerThings);
-    echo "</pre>";
-    ?>
+var_dump(palindrome("nababan"));
+echo "<br>";
+
+var_dump(palindrome("jambaban"));
+echo "<br>";
+
+var_dump(palindrome("racecar"));
+
+echo "<br><br>";
+
+echo "<h3>Soal No 4 Tentukan Nilai</h3>";
+
+function tentukan_nilai($nilai) {
+    if ($nilai >= 85 && $nilai <= 100) {
+        return "Sangat Baik";
+    } elseif ($nilai >= 70 && $nilai < 85) {
+        return "Baik";
+    } elseif ($nilai >= 60 && $nilai < 70) {
+        return "Cukup";
+    } else {
+        return "Kurang";
+    }
+}
+
+echo tentukan_nilai(98);
+echo "<br>";
+
+echo tentukan_nilai(76);
+echo "<br>";
+
+echo tentukan_nilai(67);
+echo "<br>";
+
+echo tentukan_nilai(43);
+
+?>
+
 </body>
 
 </html>

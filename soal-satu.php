@@ -4,60 +4,141 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>String PHP</title>
+    <title>Looping</title>
 </head>
 <body>
-    <h1>Berlatih String PHP</h1>
-    <?php   
-        echo "<h3> Soal No 1</h3>";
+    <h1>Berlatih Looping</h1>
+
+    <?php 
+        echo "<h3>Soal No 1 Looping I Love PHP</h3>";
         /* 
-            SOAL NO 1
-            Tunjukan dengan menggunakan echo berapa panjang dari string yang diberikan berikut! Tunjukkan juga jumlah kata di dalam kalimat tersebut! 
-            Contoh: 
-            $string = "PHP is never old";
-            Output:
-            Panjang string: 16, 
-            Jumlah kata: 4 
+            Soal No 1 
+            Looping I Love PHP
+            Lakukan Perulangan (boleh for/while/do while) sebanyak 20 iterasi. Looping terbagi menjadi dua: Looping yang pertama Ascending (meningkat) 
+            dan Looping yang ke dua menurun (Descending). 
+
+            Output: 
+            LOOPING PERTAMA
+            2 - I Love PHP
+            4 - I Love PHP
+            6 - I Love PHP
+            8 - I Love PHP
+            10 - I Love PHP
+            12 - I Love PHP
+            14 - I Love PHP
+            16 - I Love PHP
+            18 - I Love PHP
+            20- I Love PHP
+            LOOPING KEDUA
+            20 - I Love PHP
+            18 - I Love PHP
+            16 - I Love PHP
+            14 - I Love PHP
+            12 - I Love PHP
+            10 - I Love PHP
+            8 - I Love PHP
+            6 - I Love PHP
+            4 - I Love PHP
+            2 - I Love PHP
+        */
+        // 
+
+echo "LOOPING PERTAMA<br>";
+
+for ($i = 2; $i <= 20; $i += 2) {
+    echo $i . " - I Love PHP<br>";
+}
+
+echo "LOOPING KEDUA<br>";
+
+for ($i = 20; $i >= 2; $i -= 2) {
+    echo $i . " - I Love PHP<br>";
+}
+
+
+
+        echo "<h3>Soal No 2 Looping Array Modulo </h3>";
+        /* 
+            Soal No 2
+            Looping Array Module
+            Carilah sisa bagi dengan angka 5 dari setiap angka pada array berikut.
+            Tampung ke dalam array baru bernama $rest 
         */
 
-        $first_sentence = "Hello PHP!" ; // Panjang string 10, jumlah kata: 2
-        $second_sentence = "I'm ready for the challenges"; // Panjang string: 28,  jumlah kata: 5
+$numbers = [18, 45, 29, 61, 47, 34];
+echo "array numbers: ";
+print_r($numbers);
 
-        echo "Kalimat: $first_sentence <br>";
-        echo "Panjang string: " . strlen($first_sentence);
-        echo "<br>";
-        echo "Jumlah kata: " . str_word_count($first_sentence);
-        echo "<br><br>";
+echo "<br>";
+echo "Array sisa baginya adalah: ";
+echo "<br>";
 
-        echo "Kalimat: $second_sentence <br>";
-        echo "Panjang string: " . strlen($second_sentence);
-        echo "<br>";
-        echo "Jumlah kata: " . str_word_count($second_sentence);
+$rest = [];
 
-        echo "<h3> Soal No 2</h3>";
+foreach ($numbers as $number) {
+    $rest[] = $number % 5;
+}
+
+print_r($rest);
+
+        echo "<h3> Soal No 3 Looping Asociative Array </h3>";
         /* 
-            SOAL NO 2
-            Mengambil kata pada string dan karakter-karakter yang ada di dalamnya. 
+            Soal No 3
+            Loop Associative Array
+            Terdapat data items dalam bentuk array dimensi. Buatlah data tersebut ke dalam bentuk Array Asosiatif. 
+            Setiap item memiliki key yaitu : id, name, price, description, source. 
+            
+            Output: 
+            Array ( [id] => 001 [name] => Keyboard Logitek [price] => 60000 [description] => Keyboard yang mantap untuk kantoran [source] => logitek.jpeg ) 
+            Array ( [id] => 002 [name] => Keyboard MSI [price] => 300000 [description] => Keyboard gaming MSI mekanik [source] => msi.jpeg ) 
+            Array ( [id] => 003 [name] => Mouse Genius [price] => 50000 [description] => Mouse Genius biar lebih pinter [source] => genius.jpeg ) 
+            Array ( [id] => 004 [name] => Mouse Jerry [price] => 30000 [description] => Mouse yang disukai kucing [source] => jerry.jpeg ) 
+
         */
-        $string2 = "I love PHP";
+$items = [
+    ['001', 'Keyboard Logitek', 60000, 'Keyboard yang mantap untuk kantoran', 'logitek.jpeg'], 
+    ['002', 'Keyboard MSI', 300000, 'Keyboard gaming MSI mekanik', 'msi.jpeg'],
+    ['003', 'Mouse Genius', 50000, 'Mouse Genius biar lebih pinter', 'genius.jpeg'],
+    ['004', 'Mouse Jerry', 30000, 'Mouse yang disukai kucing', 'jerry.jpeg']
+];
+
+foreach ($items as $item) {
+    $data = [
+        'id' => $item[0],
+        'name' => $item[1],
+        'price' => $item[2],
+        'description' => $item[3],
+        'source' => $item[4]
+    ];
+
+    print_r($data);
+    echo "<br>";
+}
+
         
-        echo "<label>String: </label> \"$string2\" <br>";
-        echo "Kata pertama: " . substr($string2, 0, 1) . "<br>" ; 
-        // Lanjutkan di bawah ini
-        echo "Kata kedua: " . substr($string2, 2, 4);
-        echo "<br> Kata Ketiga: " . substr($string2, 7, 3);
-
-        echo "<h3> Soal No 3 </h3>";
-        /*
-            SOAL NO 3
-            Mengubah karakter atau kata yang ada di dalam sebuah string.
+        echo "<h3>Soal No 4 Asterix </h3>";
+        /* 
+            Soal No 4
+            Asterix 5x5
+            Tampilkan dengan looping dan echo agar menghasilkan kumpulan bintang dengan pola seperti berikut: 
+            Output: 
+            * 
+            * * 
+            * * * 
+            * * * * 
+            * * * * *
         */
-        $string3 = "PHP is old but Good!";
-        echo "String: \"$string3\" <br>"; 
-        // OUTPUT : "PHP is awesome"
 
-        echo "Hasil: " . str_replace("old but Good!", "awesome", $string3);
+echo "Asterix: ";
+echo "<br>";
 
+for ($i = 1; $i <= 5; $i++) {
+    for ($j = 1; $j <= $i; $j++) {
+        echo "* ";
+    }
+    echo "<br>";
+}  
     ?>
+
 </body>
 </html>
